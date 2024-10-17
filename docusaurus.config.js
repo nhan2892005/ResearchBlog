@@ -5,18 +5,20 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Research Blog',
   tagline: 'Make your knowledge accessible',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/bdc.ico',
 
   // Set the production url of your site here
-  url: 'https://phucnhan.vercel.app',
+  url: 'https://nhan2892005.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/ResearchBlog/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -45,6 +47,9 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/nhan2892005/ResearchBlog',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+          path: 'docs',
         },
         blog: {
           showReadingTime: true,
@@ -67,17 +72,26 @@ const config = {
       }),
     ],
   ],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/hpc.png',
       navbar: {
         title: 'Research Blog',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/bdc.svg',
         },
         items: [
           {
@@ -88,12 +102,31 @@ const config = {
           },
           {
             type: 'docSidebar',
+            sidebarId: 'HPC',
+            position: 'left',
+            label: 'High Performance Computing',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'Schedule',
+            position: 'left',
+            label: 'Scheduling Problem',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'RLsidebar',
             position: 'left',
             label: 'Reinforcement Learning',
           },
           {
+            type: 'docSidebar',
+            sidebarId: 'ANN',
+            position: 'left',
+            label: 'Artificial Neural Network',
+          },
+          {
             type: 'localeDropdown',
+            position: 'right',
           },
           {
             href: 'https://github.com/nhan2892005/',
@@ -141,7 +174,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Research Page, Inc. Built with Docusaurus.`,
+        // copyright: `Copyright © ${new Date().getFullYear()} Research Page, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
