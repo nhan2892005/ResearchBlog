@@ -1,13 +1,15 @@
 {
   "name": "my-website",
+  "homepage": "https://nhan2892005.github.io/",
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
@@ -24,7 +26,8 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",
-    "@docusaurus/types": "3.5.2"
+    "@docusaurus/types": "3.5.2",
+    "gh-pages": "^6.2.0"
   },
   "browserslist": {
     "production": [
